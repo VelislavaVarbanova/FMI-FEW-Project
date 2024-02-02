@@ -10,23 +10,40 @@
 
 .main-content {
     background-color: var(--bg);
+    border-radius: 25px;
     padding: 20px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
     box-shadow: -1px -1px 37px 13px rgba(0,0,0,0.7);
     -webkit-box-shadow: -1px -1px 37px 13px rgba(0,0,0,0.7);
     -moz-box-shadow: -1px -1px 37px 13px rgba(0,0,0,0.7);
 }
 
+@media only screen and (max-width: 600px) {
+    .main-content {
+        flex-direction: column;
+        width: 80%; 
+        margin: 0; 
+    }
+    .create-account {
+        align-items: center;
+    }
+
+    .register-btn {
+        width: 100%; 
+    }
+}
+
 #h1 {
-    margin: 0;
+    margin: 10px 0;
     color: var(--main-col);
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    padding: 10px;
 	box-sizing: border-box;
 }
 
@@ -37,6 +54,7 @@
 
 .login-btn {
     background-color: var(--main-col);
+    border-radius: 25px;
     color: white;
     padding: 10px;
     cursor: pointer;
@@ -44,9 +62,7 @@
 
 .create-account {
     display: flex;
-	align-items: center;
-    margin: 20px;
-    margin-right: 0;
+    align-items: center;
 }
 
 #h6 {
