@@ -1,0 +1,89 @@
+.header {
+    height: 3rem;
+}
+
+.back-img {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.main {
+    background-image: url(../img/grass.jpg);
+    background-position: 60%;
+    height: 80% ;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+}
+
+.main-content {
+    background-color: var(--purple-bg);
+    width: 800px;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: -1px -1px 37px 13px rgba(0,0,0,0.7);
+    -webkit-box-shadow: -1px -1px 37px 13px rgba(0,0,0,0.7);
+    -moz-box-shadow: -1px -1px 37px 13px rgba(0,0,0,0.7);
+}
+
+.main-content, .register-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-content h1 {
+    color: var(--dark-purple);
+}
+
+.register-form input {
+    /* margin: 5px; */
+    width: 400px;
+    height: 30px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.login-btn {
+    background-color: var(--dark-purple);
+    border-radius: 25px;
+    width: 100%;
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.register-form h6 {
+    /* margin-top: 0;
+    margin-left: 0; */
+    color: var(--dark-purple);
+    align-self: start;
+    margin: 10px 0 0 0 ;
+}
+
+@media only screen and (max-width: 800px) { 
+    .main-content {
+        width: 80%;
+    }
+    .register-form {
+        width: 100%;
+    }
+   .register-form input {
+        width: 100%;
+   }
+}
+
+input.invalid-field {
+	border-bottom: 2px solid red;
+}
+
+.register-error {
+	margin-left: 1rem;
+	color: red;
+}
