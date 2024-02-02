@@ -32,7 +32,7 @@ function login(event, email, password) {
         return;
     }
 
-    window.location.href = "./home.html";
+    window.location.href = "./Home/home.html";
 
 }
 
@@ -49,6 +49,6 @@ document.querySelector(".login-btn").addEventListener(
 document.querySelector(".create-account button").addEventListener(
     "click",
     (_event) => {     
-        window.location.href = "./register.html";
+        window.location.href = "./Register/register.html";
     },
 );
