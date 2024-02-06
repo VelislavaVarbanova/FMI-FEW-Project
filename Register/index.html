@@ -4,7 +4,6 @@
         <title>chatkam app</title>
         <link rel="stylesheet" href="../common.css">
         <link rel="stylesheet" href="style.css">
-        <script src="script.js" defer></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -17,20 +16,22 @@
                 <span class="register-error"></span>
                 <form action="#" class="register-form">
                     <h6>EMAIL</h6>
-                    <input type="text" class="register-email" name="email">
+                    <input type="text" id="register-email">
                     <h6>PASSWORD</h6>
-                    <input type="password" class="register-password" name="email" >
+                    <input type="password" id="register-password" >
                     <h6>REPEAT PASSWORD</h6>
-                    <input type="password" class="repeat-password" name="repeat-email" >
+                    <input type="password" id="repeat-password">
                     <h6>FULL NAME</h6>
-                    <input type="text" class="full-name" name="full-name" required >
+                    <input type="text" id="full-name" required >
                     <h6>DATE OF BIRTH</h6>
-                    <input type="date" class="date" name="date" required>
-                    <button type="submit" class="login-btn">Sign up</button>
+                    <input type="date" id="date" required>
+                    <button type="submit" class="register-btn">Sign up</button>
                 </form>
             </section>
         </main>
         <footer class="footer">
         </footer>
+        <script src="../firebase.js" type="module"></script>
+        <script src="script.js" type="module"></script>
     </body>
 </html>

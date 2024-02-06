@@ -49,7 +49,7 @@ input:focus{
     outline: none;
 }
 
-.login-btn {
+.register-btn {
     background-color: var(--dark-purple);
     border-radius: 25px;
     width: 100%;

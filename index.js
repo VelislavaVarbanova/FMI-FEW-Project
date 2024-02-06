@@ -1,13 +1,7 @@
-const USERS = [
-    {email: "bluesunshine92@example.com", password: "Sparkle789!"},
-    {email: "greenleaf45@example.com" , password: "Nature2022!"},
-    {email: "silvermoon77@example.com" , password: "LunaMagic#1"},
-    {email: "crimsonsky33@example.com" , password: "SunsetDreams!22"},
-    {email: "azurewave19@example.com" , password: "OceanBreeze123!"}
-];
+import { signIn } from "../firebase.js";
+import { database } from "../firebase.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 
 function login(event, email, password) {
     event.preventDefault();
@@ -18,22 +12,35 @@ function login(event, email, password) {
         return;
     }
 
-    const user = USERS.find((user) => user.email === email);
+    // if (!user) {
+    //     document.querySelector(".register-error").textContent = "There is no registered user with that email";
+    //     document.querySelector('.login-email').classList.add("invalid-field");
+    //     return;
+    // }
 
-    if (!user) {
-        document.querySelector(".register-error").textContent = "There is no registered user with that email";
-        document.querySelector('.login-email').classList.add("invalid-field");
-        return;
-    }
+    // if (user.password !== password) {
+    //     document.querySelector(".register-error").textContent = "Wrong password";
+    //     document.querySelector('.login-password').classList.add("invalid-field");
+    //     return;
+    // }
 
-    if (user.password !== password) {
-        document.querySelector(".register-error").textContent = "Wrong password";
-        document.querySelector('.login-password').classList.add("invalid-field");
-        return;
-    }
-
-    window.location.href = "./Home/home.html";
-
+    signIn(email, password)
+    .then(function() {
+        const user = auth.currentUser;
+        const database_ref = database.ref();
+        const user_data = {
+            last_login : Date.now()
+        };
+        database_ref.child('users/' + user.uid).update(user_data);
+        alert('User Logged in!'); 
+        
+    })
+    .catch(function(error) {
+        const error_code = error_code;
+        const error_message = error_message;
+        alert(error_message);
+    });
+    window.location.href = "./Home/index.html";
 }
 
 document.querySelector(".login-btn").addEventListener(
@@ -49,6 +56,6 @@ document.querySelector(".login-btn").addEventListener(
 document.querySelector(".create-account button").addEventListener(
     "click",
     (_event) => {     
-        window.location.href = "./Register/register.html";
+        window.location.href = "./Register/index.html";
     },
 );

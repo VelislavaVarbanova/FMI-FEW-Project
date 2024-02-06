@@ -1,72 +1,77 @@
-const USERS = [
-    {email: "bluesunshine92@example.com", password: "Sparkle789!"},
-    {email: "greenleaf45@example.com" , password: "Nature2022!"},
-    {email: "silvermoon77@example.com" , password: "LunaMagic#1"},
-    {email: "crimsonsky33@example.com" , password: "SunsetDreams!22"},
-    {email: "azurewave19@example.com" , password: "OceanBreeze123!"}
-];
+import { createUser} from "../firebase.js";
+import { database } from "../firebase.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 const PASSWORD_PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*0-9])(?=.{8,})\S+$/;
 
-
 document.querySelector(".back-img").addEventListener("click", (_event) => window.location.href = "../index.html");
-document.querySelector(".login-btn").addEventListener(
+
+document.querySelector(".register-btn").addEventListener(
     "click" , 
     (event) =>
         register(
             event, 
-            document.querySelector(".register-email").value, 
-            document.querySelector(".register-password").value, 
-            document.querySelector(".repeat-password").value
+            document.getElementById("register-email").value, 
+            document.getElementById("register-password").value
         )
 )
 
 let isRegisterBlocked = true;
 
-const repeatPasswordInput = document.querySelector(".repeat-password");
+const repeatPasswordInput = document.getElementById("repeat-password");
 repeatPasswordInput.addEventListener(
     "input", 
     (event) => {
-        const password = document.querySelector(".register-password").value;
+        const password = document.getElementById("register-password").value;
         if (repeatPasswordInput.value !== password) {
-            document.querySelector('.repeat-password').classList.add("invalid-field");
+            document.getElementById("repeat-password").classList.add("invalid-field");
             isRegisterBlocked = true;
         }
         else {
-            document.querySelector('.repeat-password').classList.remove("invalid-field");
+            document.getElementById("repeat-password").classList.remove("invalid-field");
             isRegisterBlocked = false;
         }
-
 });
 
-function register(event, email, password, repeatPassword) {
+function register(event, email, password) {
     event.preventDefault();
-
 
     if (!EMAIL_PATTERN.test(email)) {
         document.querySelector(".register-error").textContent = "Invalid email format";
-        document.querySelector('.register-email').classList.add("invalid-field");
+        document.getElementById("register-email").classList.add("invalid-field");
         return;
     }
 
-    const user = USERS.find((user) => user.email === email);
+    const full_name = document.getElementById('full-name').value;
+    const date_of_birth = document.getElementById('date').value;
 
-    if (user) {
-        document.querySelector(".register-error").textContent = "Already registered email";
-        document.querySelector('.register-email').classList.add("invalid-field");
-        return;
-    }
-
+    createUser(email, password)
+    .then(function() {
+        const user = auth.currentUser;
+        const database_ref = database.ref();
+        const user_data = {
+            email : email,
+            full_name : full_name,
+            date_of_birth : date_of_birth,
+            last_login : Date.now()
+        };
+        database_ref.child('users/' + user.uid).set(user_data);
+        alert('User Created!');
+    })
+    .catch(function(error) {
+        if (error.code === 'auth/email-already-in-use') {
+            return alert('The email address is already registered. Try signing in.');
+        }
+        alert('Something went wrong')
+    })
     if (!PASSWORD_PATTERN.test(password)) {
         document.querySelector(".register-error").textContent = "Invalid password format";
-        document.querySelector('.register-password').classList.add("invalid-field");
+        document.getElementById('register-password').classList.add("invalid-field");
         return; 
     }
 
     if (!isRegisterBlocked) {
-        window.location.href = "../Home/home.html";
+         window.location.href = "../Home/home.html";
     }
 
 }
