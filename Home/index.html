@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chatkam app</title>
+        <link rel="stylesheet" href="../common.css">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section class="chat-section">
+            <div class="chat-container">
+                <aside class="chat-sidebar">
+                    <a href="#" class="sidebar-logo">
+                        <i class="ri-chat-smile-fill"></i>
+                    </a>
+                    <ul class="sidebar-menu">
+                        <li><a href="#"><i class="ri-chat-1-line"></i></a></li>
+                        <li><a href="#"><i class="ri-contacts-line"></i></a></li>
+                        <li><a href="#"><i class="ri-account-circle-line"></i></a><p id="user-name"></p></li>
+                        <li><button id="logout-button">Logout</button></li>
+                    </ul>
+                </aside>
+            </div>
+        </section>
+        <script src="../firebase.js" type="module"></script>
+        <script src="./script.js" type="module"></script>
+    </body>
+</html>
