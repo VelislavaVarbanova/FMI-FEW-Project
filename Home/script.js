@@ -39,3 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+document.querySelector('.profile-button').addEventListener('mouseover', function(e) {
+    e.preventDefault();
+    this.parentElement.classList.toggle('active')
+})

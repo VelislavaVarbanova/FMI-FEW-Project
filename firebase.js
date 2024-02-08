@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
-export const onAuthChanged = (callback) => {console.log('1'); return onAuthStateChanged(auth, callback)};
+export const onAuthChanged = (callback) => onAuthStateChanged(auth, callback);
 export const signOut = () => fbSignOut(auth);
 export const database = getDatabase(app);
 export const refDatabase = (path) => ref(database, path);
