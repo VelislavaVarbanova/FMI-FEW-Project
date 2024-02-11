@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>chatkam profile</title>
+        <link rel="stylesheet" href="../../common.css">
+        <link rel="stylesheet" href="../menu.css">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <aside class="chat-sidebar">
+            <a href="./" class="sidebar-logo">
+                <i class="ri-chat-smile-fill"></i>
+            </a>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="../../Home/index.html" title="chats"><i class="ri-chat-1-line"></i></a>
+                </li>
+                <li>
+                    <a href="./" title="contacts"><i class="ri-contacts-line"></i></a>
+                </li>
+                <li>
+                    <a href="./" title="notifications"><i class="ri-notification-2-line"></i></a>
+                </li>
+                <li class="sidebar-profile">
+                    <button class="profile-button active">
+                        <a href="./Profile/index.html" title="profile"><i class="ri-account-circle-line"></i></a>
+                    </button>
+                    <div class="profile-dropdown">
+                        <button id="logout-button" title="log out"><i class="ri-user-received-line"></i>
+                        <div class="logout-title">Log out</div></button>
+                    </div>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <div class="style-background"></div>
+            <section class="profile-content">
+                <div class="user-picture"><i class="ri-user-2-line"></i></div>
+                <h1 id="user-name"></h1>
+                <div class="user-info-box">
+                    <h4 id="user-email"></h4>
+                    <h4 id="user-date-of-birth"></h4>
+                </div>
+                <div class="friends-box">
+                    <h3 id="friends-title">Friends</h3>
+                    <i class="ri-arrow-right-s-line"></i>
+                </div>
+            </section>
+        </main>
+        <script src="../../firebase.js" type="module"></script>
+        <script src="./script.js" type="module"></script>
+    </body>
+</html>

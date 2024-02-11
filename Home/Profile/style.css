@@ -1,0 +1,87 @@
+
+body {
+    display: flex;
+}
+
+main {
+    /* display: flex; */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../img/grass.jpg);
+    background-size:150%;
+    z-index:-1;
+}
+
+.style-background {
+    background-color: white;
+    width: 100%;
+    height: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index:-1;
+}
+
+.profile-content {
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    width: 80%;
+    -webkit-box-shadow: 0px -1px 37px 16px var(--main-col);
+    -moz-box-shadow: 0px -1px 37px 16px var(--main-col);
+    box-shadow: 0px -1px 37px 16px var(--main-col);
+}
+
+.user-picture {
+    color: var(--bg);
+    font-size: 44px;
+    border-radius: 50%;
+    border-style: inset;
+    background-color: var(--main-col);
+    padding: 16px;
+}
+
+#user-name {
+    color: var(--main-col);
+}
+
+.user-info-box {
+    background-color: var(--purple-bg);
+    padding: 20px;
+    color: var(--dark-purple);
+    width: 80%;
+    border-color: var(--dark-purple);
+    border-style: inset;
+    margin: 30px;
+}
+
+.friends-box {
+    cursor: pointer;
+    background-color: var(--main-col);
+    padding: 20px;
+    color: var(--bg);
+    width: 80%;
+    border-color: var(--bg);
+    border-style: inset;
+    border-radius: 20px;
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#friends-title {
+    margin: 0;
+}
+
+.ri-arrow-right-s-line {  /* arrow icon*/
+    font-size: 34px;
+    
+}

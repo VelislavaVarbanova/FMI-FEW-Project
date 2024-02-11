@@ -1,0 +1,117 @@
+/* ASIDE MENU BAR */
+
+.chat-sidebar {
+    height: 100%;
+    width: fit-content;
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    font-size: 42px;
+    color: var(--dark-purple);
+    display: block;
+    text-align: center;
+    padding: 12px 8px;
+    text-decoration: none;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 16px 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.sidebar-menu a {
+    display: block;
+    text-align: center;
+    padding: 12px 8px;
+    text-decoration: none;
+    color: var(--main-col);
+    position: relative;
+}
+
+.sidebar-menu a:hover {
+    color: var(--dark-purple);
+}
+
+.sidebar-menu .active > a {
+    box-shadow: inset 4px 0 var(--dark-purple);
+    color: var(--dark-purple);
+    background-color: #afc38f;
+}
+
+.sidebar-menu a[title]:after {
+    content: attr(title);
+    position: absolute;
+    left: calc(100% - 16px);
+    border-radius: 4px;
+    font-size: 13px;
+    padding: 6px 12px;
+    background-color:whitesmoke;
+    color: var(--purple-bg);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .15s ease-in-out;
+}
+
+.sidebar-menu a[title]:hover:after {
+    left: calc(100% - 8px);
+    opacity: 1;
+    visibility: visible;
+} 
+
+.sidebar-profile {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+}
+
+.profile-button {
+    padding: 0;
+}
+
+.profile-button, #logout-button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    color: var(--main-col);
+}
+
+.ri-account-circle-line  { /* profile icon*/
+    font-size: 28px;
+}
+
+.sidebar-profile #logout-button {
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    border-radius: 18px;
+    padding: 8px;
+    margin-left: 10px;
+    margin-right: 8px;
+    transform: scale(.9);
+    transform-origin: left bottom;
+    transition: all .15s ease-in-out;
+}
+
+.sidebar-profile:hover #logout-button{
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.logout-title {
+    font-size: 10px;
+    color: var(--main-col);
+    font-weight: 600;
+}
+
+.profile-dropdown a:hover {
+    color: var(--dark-purple);
+}
