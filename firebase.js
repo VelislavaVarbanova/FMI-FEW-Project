@@ -20,9 +20,9 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //Initialize variables
-const auth = getAuth(app);
+export const auth = getAuth(app);
 export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
-export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
+export const signIn = (email, password) => { console.log('in fb.js'); return signInWithEmailAndPassword(auth, email, password)};
 export const onAuthChanged = (callback) => onAuthStateChanged(auth, callback);
 export const signOut = () => fbSignOut(auth);
 export const database = getDatabase(app);

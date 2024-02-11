@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chatkam chat</title>
+        <link rel="stylesheet" href="../common.css">
+        <link rel="stylesheet" href="./style.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <i class="ri-arrow-left-circle-fill" id="back-icon"></i>
+        </header>
+        <main>
+            <div id="chat">
+                <ul id="messages"></ul>
+            </div>
+        </main>
+        <footer>
+            <form id="messages-form">
+                <input id="message-input" type="text" placeholder="Type message..."/>
+                <button id="message-btn" type="submit"><i class="ri-send-plane-fill" id="send-icon"></i></button>
+            </form>
+        </footer>
+
+        <script src="../firebase.js" type="module"></script>
+        <script src="./scipt.js" type="module"></script>
+    </body>
+</html>

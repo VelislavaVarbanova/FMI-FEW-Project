@@ -1,12 +1,10 @@
 .chat-section {
     display: flex;
     height: 100%;
-}
-
-.chat-container {
-    width: 100%;
     background-color: var(--purple-bg);
 }
+
+/* ASIDE MENU BAR */
 
 .chat-sidebar {
     height: 100%;
@@ -90,7 +88,7 @@
     font-size: 22px;
     position: absolute;
     bottom: 100%;
-    left: 16px;
+    /* left: 16px; */
     background-color: white;
     list-style-type: none;
     border-radius: 4px;
@@ -123,6 +121,62 @@
 .profile-dropdown a i {
     margin-right: 12px;
 }
+
+/* CONTENT */
+
+.chats-list {
+    width:100%;
+}
+
+.top-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-purple);
+}
+
+.title {
+    font-size: 24px;
+    color: var(--purple-bg);
+    padding: 20px;
+    margin: 0;
+}
+
+.search-bar {
+    margin: 10px 20px;
+}
+
+.search-input {
+    padding: 10px;
+    padding-right: 40px;
+    width: 300px;
+    border-radius: 25px;
+    border-color: var(--purple-bg);
+}
+
+.ri-search-2-line  /*search icon*/ {
+    position: absolute;
+    right: 32px;
+    top: 22px;
+}
+
+.new-chat-box {
+    margin: 20px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+    background-color: var(--bg);
+    color: var(--main-col);
+    border-color: var(--main-col);
+    border-style: inset;
+    border-radius: 20px;
+}
+
+
 
 @media screen and (max-width: 800px) {
     

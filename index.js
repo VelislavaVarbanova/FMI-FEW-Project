@@ -1,5 +1,4 @@
-import { signIn } from "../firebase.js";
-import { database } from "../firebase.js";
+import { signIn, database, auth } from "../firebase.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -11,21 +10,11 @@ function login(event, email, password) {
         document.querySelector('.login-email').classList.add("invalid-field");
         return;
     }
-
-    // if (!user) {
-    //     document.querySelector(".register-error").textContent = "There is no registered user with that email";
-    //     document.querySelector('.login-email').classList.add("invalid-field");
-    //     return;
-    // }
-
-    // if (user.password !== password) {
-    //     document.querySelector(".register-error").textContent = "Wrong password";
-    //     document.querySelector('.login-password').classList.add("invalid-field");
-    //     return;
-    // }
+    console.log('in func');
 
     signIn(email, password)
     .then(function() {
+        console.log('sign in func');
         const user = auth.currentUser;
         const database_ref = database.ref();
         const user_data = {
@@ -45,12 +34,13 @@ function login(event, email, password) {
 
 document.querySelector(".login-btn").addEventListener(
     "click", 
-    (event) => 
+    (event) => {
+        console.log("listener");
         login(
             event, 
             document.querySelector(".login-email").value, 
             document.querySelector(".login-password").value
-        )
+        )}
 );
 
 document.querySelector(".create-account button").addEventListener(

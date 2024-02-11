@@ -9,31 +9,46 @@
     </head>
     <body>
         <section class="chat-section">
-            <div class="chat-container">
-                <aside class="chat-sidebar">
-                    <a href="#" class="sidebar-logo">
-                        <i class="ri-chat-smile-fill"></i>
-                    </a>
-                    <ul class="sidebar-menu">
-                        <li class="active">
-                            <a href="#" title="chats"><i class="ri-chat-1-line"></i></a>
-                        </li>
-                        <li>
-                            <a href="#" title="contacts"><i class="ri-contacts-line"></i></a>
-                        </li>
-                        <!-- <li><a href="#"><i class="ri-account-circle-line"></i></a><p id="user-name"></p></li> -->
-                        <li class="sidebar-profile">
-                            <button class="profile-button">
-                                <a href="#" title="profile"><i class="ri-account-circle-line"></i></a>
-                                <li class="profile-dropdown">
-                                    <a href="#" id="logout-button" title="log out"><i class="ri-user-received-line"></i></a>
-                                </li>
-                            </button>
-                            
-                        </li>
-                        <!-- <li><button id="logout-button">Logout</button></li> -->
-                    </ul>
-                </aside>
+            <aside class="chat-sidebar">
+                <a href="#" class="sidebar-logo">
+                    <i class="ri-chat-smile-fill"></i>
+                </a>
+                <ul class="sidebar-menu">
+                    <li class="active">
+                        <a href="#" title="chats"><i class="ri-chat-1-line"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" title="contacts"><i class="ri-contacts-line"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" title="notifications"><i class="ri-notification-2-line"></i></a>
+                    </li>
+                    <!-- <li><a href="#"><i class="ri-account-circle-line"></i></a><p id="user-name"></p></li> -->
+                    <li class="sidebar-profile">
+                        <button class="profile-button">
+                            <a href="#" title="profile"><i class="ri-account-circle-line"></i></a>
+                            <li class="profile-dropdown">
+                                <a href="#" id="logout-button" title="log out"><i class="ri-user-received-line"></i></a>
+                            </li>
+                        </button>
+                        
+                    </li>
+                    <!-- <li><button id="logout-button">Logout</button></li> -->
+                </ul>
+            </aside>
+            <div class="chats-list">
+                <section class="top-content">
+                    <h1 class="title" id="user-name"></h1>
+                    <div class="search-bar">
+                        <input type="search" placeholder="Search..." class="search-input">
+                        <i class="ri-search-2-line"></i>
+                    </div>
+                </section>
+                <div class="new-chat-box">
+                    <p class="new-chat-title">New chat</p>
+                    <i class="ri-chat-new-line"></i>
+                </div>
+                <button class="chat">Go to chat</button>
             </div>
         </section>
         <script src="../firebase.js" type="module"></script>

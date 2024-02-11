@@ -7,11 +7,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Listen for authentication state changes
     onAuthChanged((user) => {
+        console.log(user);
         if (user) {
             const userRef = refDatabase('users/' + user.uid);
             get(userRef).then((snapshot) => {
                 if (snapshot.exists()) {
-                                const displayName = snapshot.val().full_name
+                    const displayName = snapshot.val().full_name
          || 'User'; // Fallback to 'User' if the display name is not available
                     userNameDisplay.textContent = `Welcome, ${displayName}`;
                 } else {
@@ -27,11 +28,13 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // User is signed out
             userNameDisplay.textContent = 'Not logged in';
+            // window.location.href = "../index.html";
         }
     });
 
     // Logout functionality
     logoutButton.addEventListener('click', function () {
+        console.log(123);
         signOut().then(() => {
             console.log('User signed out.');
         }).catch((error) => {
@@ -43,4 +46,8 @@ document.addEventListener('DOMContentLoaded', function () {
 document.querySelector('.profile-button').addEventListener('mouseover', function(e) {
     e.preventDefault();
     this.parentElement.classList.toggle('active')
+})
+
+document.querySelector('.chat').addEventListener('click', function() {
+    window.location.href = '../Chat';
 })
