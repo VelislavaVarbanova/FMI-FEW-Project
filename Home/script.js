@@ -1,5 +1,5 @@
 import { get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { signOut, onAuthChanged, refDatabase } from "../firebase.js";
+import { signOut, onAuthChanged, refDatabase, auth } from "../firebase.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     const userNameDisplay = document.getElementById('user-name');
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Listen for authentication state changes
     onAuthChanged((user) => {
         console.log(user);
+        console.log(auth);
         if (user) {
             const userRef = refDatabase('users/' + user.uid);
             get(userRef).then((snapshot) => {
@@ -28,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             // User is signed out
             userNameDisplay.textContent = 'Not logged in';
-            // window.location.href = "../index.html";
         }
     });
 
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(123);
         signOut().then(() => {
             console.log('User signed out.');
+            window.location.href = "../index.html";
         }).catch((error) => {
             console.error('Sign out error:', error);
         });

@@ -1,4 +1,5 @@
-import { signIn, database, auth } from "../firebase.js";
+import { signIn, database, auth, refDatabase } from "../firebase.js";
+import { update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -16,20 +17,17 @@ function login(event, email, password) {
     .then(function() {
         console.log('sign in func');
         const user = auth.currentUser;
-        const database_ref = database.ref();
         const user_data = {
             last_login : Date.now()
         };
-        database_ref.child('users/' + user.uid).update(user_data);
+        update(refDatabase('users/' + user.uid), user_data);
         alert('User Logged in!'); 
         
     })
     .catch(function(error) {
-        const error_code = error_code;
-        const error_message = error_message;
-        alert(error_message);
+        alert(error.message);
     });
-    window.location.href = "./Home/index.html";
+    // window.location.href = "./Home/index.html";
 }
 
 document.querySelector(".login-btn").addEventListener(

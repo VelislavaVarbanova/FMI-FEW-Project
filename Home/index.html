@@ -3,6 +3,7 @@
     <head>
         <title>Chatkam app</title>
         <link rel="stylesheet" href="../common.css">
+        <link rel="stylesheet" href="./menu.css">
         <link rel="stylesheet" href="./style.css">
         <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,28 +11,28 @@
     <body>
         <section class="chat-section">
             <aside class="chat-sidebar">
-                <a href="#" class="sidebar-logo">
+                <a href="./" class="sidebar-logo">
                     <i class="ri-chat-smile-fill"></i>
                 </a>
                 <ul class="sidebar-menu">
                     <li class="active">
-                        <a href="#" title="chats"><i class="ri-chat-1-line"></i></a>
+                        <a href="./" title="chats"><i class="ri-chat-1-line"></i></a>
                     </li>
                     <li>
-                        <a href="#" title="contacts"><i class="ri-contacts-line"></i></a>
+                        <a href="./" title="contacts"><i class="ri-contacts-line"></i></a>
                     </li>
                     <li>
-                        <a href="#" title="notifications"><i class="ri-notification-2-line"></i></a>
+                        <a href="./" title="notifications"><i class="ri-notification-2-line"></i></a>
                     </li>
-                    <!-- <li><a href="#"><i class="ri-account-circle-line"></i></a><p id="user-name"></p></li> -->
+                    <!-- <li><a href="./"><i class="ri-account-circle-line"></i></a><p id="user-name"></p></li> -->
                     <li class="sidebar-profile">
                         <button class="profile-button">
-                            <a href="#" title="profile"><i class="ri-account-circle-line"></i></a>
-                            <li class="profile-dropdown">
-                                <a href="#" id="logout-button" title="log out"><i class="ri-user-received-line"></i></a>
-                            </li>
+                            <a href="./Profile/index.html" title="profile"><i class="ri-account-circle-line"></i></a>
                         </button>
-                        
+                        <div class="profile-dropdown">
+                            <button id="logout-button" title="log out"><i class="ri-user-received-line"></i>
+                            <div class="logout-title">Log out</div></button>
+                        </div>
                     </li>
                     <!-- <li><button id="logout-button">Logout</button></li> -->
                 </ul>

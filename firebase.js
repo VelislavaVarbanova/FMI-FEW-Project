@@ -2,7 +2,8 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut as fbSignOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged,
+     signOut as fbSignOut, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 // Your web app's Firebase configuration
@@ -27,3 +28,12 @@ export const onAuthChanged = (callback) => onAuthStateChanged(auth, callback);
 export const signOut = () => fbSignOut(auth);
 export const database = getDatabase(app);
 export const refDatabase = (path) => ref(database, path);
+
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
+    // Now, subsequent auth states will be persisted across page reloads.
+    // You can safely sign in and redirect.
+  })
+  .catch((error) => {
+    console.error("Error setting persistence:", error);
+  });
