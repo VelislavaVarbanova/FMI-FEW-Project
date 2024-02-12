@@ -22,12 +22,12 @@ function login(event, email, password) {
         };
         update(refDatabase('users/' + user.uid), user_data);
         alert('User Logged in!'); 
-        
+        window.location.href = "./Home/index.html";
     })
     .catch(function(error) {
         alert(error.message);
     });
-    // window.location.href = "./Home/index.html";
+    
 }
 
 document.querySelector(".login-btn").addEventListener(

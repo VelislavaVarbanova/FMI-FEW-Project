@@ -51,12 +51,39 @@ body {
     border-radius: 8px;
 }
 
-.friends-list-title {
+.friends-list-title, .friend-requesrs-title {
     color: var(--purple-bg);
     margin: 20px;
     padding: 20px;
     font-weight: 600;
     font-size: 28px;
+    display: flex;
+    justify-content: left;
+}
+
+.friend-requests-section {
+    padding-left: 0;
+}
+
+.friend-requests-section li {
+    margin: 0 40px;
+    padding: 6px;
+    color: var(--dark-purple);
+    background-color: var(--purple-bg);
+    border-radius: 8px;
+    font-size: 24px;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.friend-requests-section li button {
+    padding: 5px;
+    margin: 10px;
+    background-color: var(--bg);
+    border-radius: 8px;
+    border-color: var(--main-col);
+    color: var(--main-col);
 }
 
 #friends-list li {
@@ -64,7 +91,10 @@ body {
     padding: 20px;
     color: var(--purple-bg);
     font-size: 24px;
+    margin: 0;
 }
+
+
 
 /* SCREENS */
 
