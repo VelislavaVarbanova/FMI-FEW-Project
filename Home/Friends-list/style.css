@@ -21,7 +21,7 @@ body {
     background-color: var(--bg);
     padding: 10px 20px;
     margin: 30px;
-    width: 400px;
+    width: 40%;
     color: var(--main-col);
     border-color: var(--main-col);
     border-radius: 8px;
@@ -37,3 +37,66 @@ body {
     border-radius: 25px;
 }
 
+#add-friends {
+    padding: 8px;
+    margin: 10px;
+    border-radius: 16px;
+    border-color: var(--main-col);
+}
+
+#friends {
+    margin: 30px;
+    padding: 30px;
+    background-color: var(--dark-purple);
+    border-radius: 8px;
+}
+
+.friends-list-title {
+    color: var(--purple-bg);
+    margin: 20px;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+#friends-list li {
+    /* list-style-type: none; */
+    padding: 20px;
+    color: var(--purple-bg);
+    font-size: 24px;
+}
+
+/* SCREENS */
+
+@media only screen and (max-width: 900px) {
+   
+    .middle-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-friends, .friends-requests {
+        width: 70%;
+        margin: 15px; 
+    }
+
+    #friends {
+        padding: 10px;
+    }
+
+    .friends-list-title {
+        margin: 10px;
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .add-friends, .friends-requests {
+        flex-direction: column;
+    }
+
+    .add-friends-title, .friends-requests-title {
+        margin: 10px;
+    }
+}
