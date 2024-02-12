@@ -25,6 +25,7 @@ function sendMessage(e) {
   
     // create db collection and send in the data
     push(refDatabase("messages/"),{
+      // chatID
         userId: 1, // userId: user.uid, 
         message,
         timestamp

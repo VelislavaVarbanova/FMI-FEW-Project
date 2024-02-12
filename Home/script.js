@@ -4,11 +4,16 @@ import { signOut, onAuthChanged, refDatabase, auth } from "../firebase.js";
 document.addEventListener('DOMContentLoaded', function () {
     const userNameDisplay = document.getElementById('user-name');
     const logoutButton = document.getElementById('logout-button');
-
+    
     // Listen for authentication state changes
     onAuthChanged((user) => {
         console.log(user);
+        console.log(user.uid);
         console.log(auth);
+        const currUserId = user.uid;
+        console.log(currUserId);
+        const currentUserId = auth.currentUserId;
+        console.log("Current User ID:", currentUserId);
         if (user) {
             const userRef = refDatabase('users/' + user.uid);
             get(userRef).then((snapshot) => {

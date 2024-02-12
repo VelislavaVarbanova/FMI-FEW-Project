@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    height: 100%;
+    background-color: var(--purple-bg);
+}
+
+/* ASIDE MENU BAR - IN MENU.CSS */
+/* CONTENT */
+
+.middle-content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.add-friends, .friends-requests {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--bg);
+    padding: 10px 20px;
+    margin: 30px;
+    width: 400px;
+    color: var(--main-col);
+    border-color: var(--main-col);
+    border-radius: 8px;
+    border-style: inset;
+    cursor: pointer;
+}
+
+.ri-user-add-line , .ri-user-settings-line {
+    background-color: var(--main-col);
+    /* border-style: inset; */
+    color: var(--bg);
+    padding: 10px;
+    border-radius: 25px;
+}
+

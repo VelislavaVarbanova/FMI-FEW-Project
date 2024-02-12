@@ -2,11 +2,14 @@ import { get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database
 import { signOut, onAuthChanged, refDatabase, auth } from "../../firebase.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    const userNameDisplay = document.getElementById('user-name');
     const logoutButton = document.getElementById('logout-button');
+    const friendsButton = document.querySelector('.friends-box');
+    const userNameDisplay = document.getElementById('user-name');
     const userEmailDisplay = document.getElementById('user-email');
     const userBirthDateDisplay = document.getElementById('user-date-of-birth');
 
+    const currentUserId = auth.currentUserId;
+    console.log("Current User ID:", currentUserId);
     // Listen for authentication state changes
     onAuthChanged((user) => {
         if (user) {
@@ -34,12 +37,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Logout functionality
     logoutButton.addEventListener('click', function () {
-        console.log(123);
         signOut().then(() => {
             console.log('User signed out.');
-            window.location.href = "../index.html";
+            window.location.href = "../../index.html";
         }).catch((error) => {
             console.error('Sign out error:', error);
         });
     });
+
+    friendsButton.addEventListener('click', function() {
+        window.location.href = '../Friends-list/index.html';
+    })
 });

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>chatkam profile</title>
+        <title>Chatkam contacts</title>
         <link rel="stylesheet" href="../../common.css">
         <link rel="stylesheet" href="../menu.css">
         <link rel="stylesheet" href="./style.css">
@@ -15,17 +15,17 @@
             </a>
             <ul class="sidebar-menu">
                 <li>
-                    <a href="../../Home/index.html" title="chats"><i class="ri-chat-1-line"></i></a>
+                    <a href="../index.html" title="chats"><i class="ri-chat-1-line"></i></a>
                 </li>
-                <li>
+                <li class="active">
                     <a href="../Friends-list/index.html" title="contacts"><i class="ri-contacts-line"></i></a>
                 </li>
                 <li>
                     <a href="./" title="notifications"><i class="ri-notification-2-line"></i></a>
                 </li>
                 <li class="sidebar-profile">
-                    <button class="profile-button active">
-                        <a href="./Profile/index.html" title="profile"><i class="ri-account-circle-line"></i></a>
+                    <button class="profile-button">
+                        <a href="../Profile/index.html" title="profile"><i class="ri-account-circle-line"></i></a>
                     </button>
                     <div class="profile-dropdown">
                         <button id="logout-button" title="log out"><i class="ri-user-received-line"></i>
@@ -35,19 +35,32 @@
             </ul>
         </aside>
         <main>
-            <section class="profile-content">
-                <div class="user-picture"><i class="ri-user-2-line"></i></div>
-                <h1 id="user-name"></h1>
-                <div class="user-info-box">
-                    <h4 id="user-email"></h4>
-                    <h4 id="user-date-of-birth"></h4>
-                </div>
-                <div class="friends-box">
-                    <h3 id="friends-title">Friends</h3>
-                    <i class="ri-arrow-right-s-line"></i>
+            <section class="top-content">
+                <h1 class="title">Friends</h1>
+                <div class="search-bar">
+                    <input type="search" placeholder="Search..." class="search-input">
+                    <i class="ri-search-2-line"></i>
                 </div>
             </section>
+            <section class="middle-content">
+                <div class="add-friends">
+                    <h4 class="add-friends-title">Add friends</h4>
+                    <i class="ri-user-add-line"></i>
+                </div>
+                <div class="friends-requests">
+                    <h4 class="friends-requests-title">Friends Requests</h4>
+                    <i class="ri-user-settings-line"></i>
+                </div>
+            </section>
+            <div id="friends">
+                <ul id="friends-list">
+                    <li>
+                        <!-- <p id="user-full-name">Martin Menchev</p> -->
+                    </li>
+                </ul>
+            </div>
         </main>
+
         <script src="../../firebase.js" type="module"></script>
         <script src="./script.js" type="module"></script>
     </body>

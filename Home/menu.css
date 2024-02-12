@@ -115,3 +115,42 @@
 .profile-dropdown a:hover {
     color: var(--dark-purple);
 }
+
+/* HEADER */
+
+main {
+    width: 100%;
+}
+
+.top-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--dark-purple);
+}
+
+.title {
+    font-size: 24px;
+    color: var(--purple-bg);
+    padding: 20px;
+    margin: 0;
+}
+
+.search-bar {
+    margin: 10px 20px;
+}
+
+.search-input {
+    padding: 10px;
+    padding-right: 40px;
+    width: 300px;
+    border-radius: 25px;
+    border-color: var(--purple-bg);
+}
+
+.ri-search-2-line  /*search icon*/ {
+    position: absolute;
+    right: 32px;
+    top: 22px;
+}
