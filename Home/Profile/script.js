@@ -1,5 +1,5 @@
 import { get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { signOut, onAuthChanged, refDatabase, auth } from "../../firebase.js";
+import { signOut, onAuthChanged, refDatabase } from "../../firebase.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     const logoutButton = document.getElementById('logout-button');
@@ -8,16 +8,13 @@ document.addEventListener('DOMContentLoaded', function () {
     const userEmailDisplay = document.getElementById('user-email');
     const userBirthDateDisplay = document.getElementById('user-date-of-birth');
 
-    const currentUserId = auth.currentUserId;
-    console.log("Current User ID:", currentUserId);
     // Listen for authentication state changes
     onAuthChanged((user) => {
         if (user) {
             const userRef = refDatabase('users/' + user.uid);
             get(userRef).then((snapshot) => {
                 if (snapshot.exists()) {
-                    const displayName = snapshot.val().full_name
-         || 'User'; // Fallback to 'User' if the display name is not available
+                    const displayName = snapshot.val().full_name || 'User'; // Fallback to 'User' if the display name is not available
                     userNameDisplay.textContent = `${displayName}`;
                     const displayEmail = snapshot.val().email || 'Email';
                     userEmailDisplay.textContent = `Email: ${displayEmail}`;
@@ -35,7 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Logout functionality
     logoutButton.addEventListener('click', function () {
         signOut().then(() => {
             console.log('User signed out.');

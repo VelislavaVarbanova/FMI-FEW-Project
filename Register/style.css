@@ -40,7 +40,6 @@
 }
 
 .register-form input {
-    /* margin: 5px; */
     width: 400px;
     height: 30px;
 }
@@ -60,8 +59,6 @@ input:focus{
 }
 
 .register-form h6 {
-    /* margin-top: 0;
-    margin-left: 0; */
     color: var(--dark-purple);
     align-self: start;
     margin: 10px 0 0 0 ;

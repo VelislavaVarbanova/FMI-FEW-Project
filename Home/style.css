@@ -96,6 +96,8 @@
     cursor: pointer;
 }
 
+/*------------ CHATS LIST -----------*/
+
 .chats-title {
     margin: 14px;
     color: var(--bg);
@@ -106,7 +108,7 @@ p{
     color: var(--main-col);
 }
 
-#chat-section {
+#chats-section {
     padding: 30px;
     margin: 20px;
     border-radius: 16px;
@@ -151,13 +153,55 @@ p{
     padding: 0 ;
 }
 
-@media screen and (max-width: 800px) {
+/* SCREENS */
+
+@media screen and (max-width: 950px) {
+    .middle-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .new-chat-title {
        margin: 8px; 
+    }
+
+    .new-chat-box {
+        width: 70%;
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
     }
 
     .new-chat-box > div {
         align-items:first baseline;
         height: fit-content;
+    }
+
+    .new-chat-box, .chat-requests-box {
+        margin: 8px;
+    }
+
+    #chats-section{
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .chats-title {
+        display: flex;
+        align-self: flex-start;
+    }
+
+    #chats {
+        width:90%;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .title {
+        display: none;
     }
 }

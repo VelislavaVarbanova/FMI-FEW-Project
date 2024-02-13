@@ -1,4 +1,4 @@
-/* ASIDE MENU BAR */
+/*--------- ASIDE MENU BAR ------------*/
 
 .chat-sidebar {
     height: 100%;
@@ -40,7 +40,8 @@
 }
 
 .sidebar-menu .active > a {
-    box-shadow: inset 4px 0 var(--dark-purple);
+    border-right-style: solid;
+    border-color: var(--dark-purple);
     color: var(--dark-purple);
     background-color: #afc38f;
 }
@@ -116,7 +117,7 @@
     color: var(--dark-purple);
 }
 
-/* HEADER */
+/*------------ HEADER-------------------- */
 
 main {
     width: 100%;
@@ -155,6 +156,8 @@ main {
     top: 22px;
 }
 
+/* ---------------------SCREENS------------------ */
+
 @media only screen and (max-width: 550px) {
     .search-bar {
         display: flex;
@@ -163,4 +166,22 @@ main {
     .search-input {
         width: 70%;
     }
+
+    .title {
+        display: none;
+    }
+    
+    .ri-search-2-line {
+        display: flex;
+        position: relative;
+        align-items:flex-start;
+        margin-bottom: 40px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .ri-search-2-line {
+        display: none;
+    }
+
 }

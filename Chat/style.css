@@ -11,6 +11,9 @@ header {
     display: flex;
     align-items: center;
     color: var(--main-col);
+    border-color: var(--main-col);
+    border-bottom-style:solid
+    
 }
 
 #back-icon {
@@ -21,16 +24,22 @@ header {
 }
 
 /* MAIN - CHAT SECTION */
+
 main {
     width: 100%;
     height: 100%;
     display: flex;
-    align-items: flex-end;
+    overflow: hidden; 
 }
 
 #chat {
+    height: 100%;
     width: 100%;
     margin: 10px;
+    overflow-y: auto; 
+    max-height: calc(100vh - 150px); 
+    scrollbar-color: var(--bg);
+    scrollbar-width: thin;
 }
 
 #messages {
@@ -107,7 +116,7 @@ footer {
         
     }
     
-    .receive {
+    .received {
         margin-right: 50%;
     }
 }
@@ -118,7 +127,8 @@ footer {
         
     }
     
-    .receive {
+    .received {
         margin-right: 20%;
     }
 }
+

@@ -172,12 +172,10 @@ function displayChats(user) {
                 let hasChats = false;
                 for (const chatId in chats) {
                     const chatData = chats[chatId];
-                    // Check if the current user is part of this chat
                     if (currentUserId === chatData.user1 || currentUserId === chatData.user2) {
                         hasChats = true;
                         // Find the other user's ID in the chat
                         const otherUserId = Object.values(chatData).find(userId => userId !== currentUserId);
-                        
                         if (otherUserId) {
                             const otherUserRef = refDatabase('users/' + otherUserId);
                             get(otherUserRef)
@@ -196,8 +194,7 @@ function displayChats(user) {
                                                 if (messages) {
                                                     const lastMessageKey = Object.keys(messages).pop();
                                                     const lastMessage = messages[lastMessageKey];
-                                                    listItem.innerHTML += `<span class="contact-message">${lastMessage.text}</span>`;
-                                                    listItem.innerHTML += `<span class="contact-time">${lastMessage.time}</span>`;
+                                                    listItem.innerHTML += `<span class="contact-message">${lastMessage.message}</span>`;
                                                 } else {
                                                     listItem.innerHTML += `<span class="contact-message">Start conversation</span>`;
                                                 }
@@ -274,7 +271,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 const logoutButton = document.getElementById('logout-button');
 logoutButton.addEventListener('click', function () {
-    console.log(123);
     signOut().then(() => {
         console.log('User signed out.');
         window.location.href = "../index.html";

@@ -1,4 +1,4 @@
-import { signIn, database, auth, refDatabase } from "../firebase.js";
+import { signIn, auth, refDatabase } from "../firebase.js";
 import { update } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -11,11 +11,9 @@ function login(event, email, password) {
         document.querySelector('.login-email').classList.add("invalid-field");
         return;
     }
-    console.log('in func');
 
     signIn(email, password)
     .then(function() {
-        console.log('sign in func');
         const user = auth.currentUser;
         const user_data = {
             last_login : Date.now()
@@ -32,7 +30,6 @@ function login(event, email, password) {
 document.querySelector(".login-btn").addEventListener(
     "click", 
     (event) => {
-        console.log("listener");
         login(
             event, 
             document.querySelector(".login-email").value, 

@@ -1,10 +1,9 @@
-import { database, refDatabase, auth, onAuthChanged } from "../firebase.js";
+import { refDatabase, onAuthChanged } from "../firebase.js";
 import { get } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
 let params = new URLSearchParams(window.location.search);
 let chatId = params.get('chatId');
-console.log(chatId);
 
 function displayUsers(chatId) {
   const chatsRef = refDatabase('chats/' + chatId);
@@ -55,20 +54,19 @@ function sendMessage(e, user) {
   
     document
       .getElementById("messages")
-      .scrollIntoView({ behavior: "smooth", block: "end", inline: "nearest" });
+      .scrollIntoView({ behavior: "smooth", inline: "nearest" });
   
-    push(refDatabase("messages/"),{
+    push(refDatabase("messages/" + chatId),{
         userId: user.uid,
         message,
-        timestamp,
-        chatId: chatId
+        timestamp
     });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
   onAuthChanged((user) => {
 
-    const fetchChat = refDatabase("messages/");
+    const fetchChat = refDatabase("messages/" + chatId);
     onChildAdded(fetchChat, function(snapshot) {
       const messageData = snapshot.val();
       const userId = messageData.userId;

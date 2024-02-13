@@ -1,9 +1,9 @@
 import { set } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-import { createUser, database, refDatabase } from "../firebase.js";
+import { createUser, refDatabase } from "../firebase.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PASSWORD_PATTERN = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*0-9])(?=.{8,})\S+$/;
-console.log(database);
+
 document.querySelector(".back-img").addEventListener("click", (_event) => window.location.href = "../index.html");
 
 document.querySelector(".register-btn").addEventListener(
@@ -50,7 +50,6 @@ function register(event, email, password) {
         // Use userCredential to get the user object
         const user = userCredential.user;
         
-        // Define user data
         const user_data = {
             email: email,
             full_name: full_name,
@@ -58,12 +57,10 @@ function register(event, email, password) {
             last_login: Date.now()
         };
         
-        // Set the user data at the specified database path
         set(refDatabase('users/' + user.uid), user_data)
             .then(() => {
                 alert('User created and data added to database!');
             }).catch((error) => {
-                // Handle errors in setting data to the database
                 console.error("Error saving user data to the database", error);
                 alert('Failed to add user data to database.');
             });

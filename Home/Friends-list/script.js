@@ -19,12 +19,11 @@ function addFriends(user) {
         if (friendId) {
           // Friend found, send friend request
           const friendRequestData = {
-            status: "pending", // Initial status of the friend request
-            sender: currentUserId, // ID of the user sending the request
-            receiver: friendId // ID of the user receiving the request
+            status: "pending", 
+            sender: currentUserId, 
+            receiver: friendId 
         };
 
-        // Push the friend request data to the '/friendRequests' node in the database
         push(refDatabase('friendRequests/' + friendId), friendRequestData)
             .then(() => {
                 alert("Friend request sent successfully!");
@@ -47,23 +46,19 @@ function displayFriends(user) {
     if (currentUserId) {
     
       const friendsRef = refDatabase('friends/' + currentUserId);
-      // Fetch user's friends from the database
       get(friendsRef)
       .then(snapshot => {
         const friends = snapshot.val();
         if (friends) {
-            // Assuming you have a DOM element with id 'friends-list' to display the list of friends
             const friendsListElement = document.getElementById('friends-list');
             friendsListElement.innerHTML = ''; // Clear existing content
           
           for (const friendId in friends) {
-            // Fetch friend's information from '/users' node in the database
             const friendRef = refDatabase('users/' + friendId);
             get(friendRef)
               .then(friendSnapshot => {
                 const friendData = friendSnapshot.val();
                 if (friendData) {
-                  // Display friend's full name
                     const fullName = friendData["full_name"];
                     const listItem = document.createElement('li');
                     // const iconElement = document.createElement('i');
@@ -112,16 +107,13 @@ function displayFriendRequests(user) {
               if (friendRequestData.status === 'pending') {
                 const senderId = friendRequestData.sender;
       
-                // Fetch sender's data from the database
                 const senderRef = refDatabase('users/' + senderId);
                 get(senderRef).then(senderSnapshot => {
                   const senderData = senderSnapshot.val();
                   if (senderData) {
-                    // Create a list item to display the friend request
                     const listItem = document.createElement('li');
                     listItem.textContent = `Sender: ${senderData.full_name}, Status: ${friendRequestData.status}`;
                       
-                    // Create buttons for accepting and rejecting the friend request
                     const acceptButton = document.createElement('button');
                     acceptButton.textContent = 'Accept';
                     const rejectButton = document.createElement('button');
@@ -135,11 +127,9 @@ function displayFriendRequests(user) {
                       updateFriendRequestStatus(friendRequestId, 'rejected', currentUserId);
                     });
       
-                    // Append buttons to the list item
                     listItem.appendChild(acceptButton);
                     listItem.appendChild(rejectButton);
       
-                    // Append the list item to the friend requests section
                     friendRequestsSection.appendChild(listItem);
                   }
               }).catch(error => {
@@ -160,48 +150,36 @@ function displayFriendRequests(user) {
 }
 
 function updateFriendRequestStatus(friendRequestId, status, chatRequestId) {
-    console.log("Friend Request ID:", friendRequestId);
 
-    // Reference to the friend request node in the database
     const friendRequestRef = refDatabase('friendRequests/' + chatRequestId + '/' + friendRequestId);
-    console.log("Friend Request Reference:", friendRequestRef.toString());
 
-    // Fetch the friend request data
     get(friendRequestRef)
         .then(friendRequestSnapshot => {
             const friendRequestData = friendRequestSnapshot.val();
-            console.log("Friend Request Snapshot:", friendRequestSnapshot.val());
             if (friendRequestData) {
                 const receiverId = friendRequestData.receiver;
                 const senderId = friendRequestData.sender;
 
-                // Construct the new friend request data
                 const newFriendRequestData = {
                     receiver: receiverId,
                     sender: senderId,
                     status: status
                 };
 
-                // Update the friend request node with the new data
                 set(friendRequestRef, newFriendRequestData)
                     .then(() => {
                         console.log("Friend request status updated successfully!");
 
-                        // If the friend request is accepted, add the users as friends
                         if (status === 'accepted') {
-                            // Add the friend to the receiver's friends list
                             const receiverFriendRef = refDatabase('friends/' + receiverId + '/' + senderId);
                             set(receiverFriendRef, true)
                                 .then(() => {
                                     console.log("Friend added to receiver's friends list successfully!");
-                                    // Refresh friend requests after updating status
-                                    // displayFriendRequests(auth.currentUser);
                                 })
                                 .catch(error => {
                                     console.error("Error adding friend to receiver's friends list: ", error);
                                 });
 
-                            // Add the receiver to the sender's friends list
                             const senderFriendRef = refDatabase('friends/' + senderId + '/' + receiverId);
                             set(senderFriendRef, true)
                                 .then(() => {
@@ -214,7 +192,6 @@ function updateFriendRequestStatus(friendRequestId, status, chatRequestId) {
                                     console.error("Error adding receiver to sender's friends list: ", error);
                                 });
                         } else {
-                            // Refresh friend requests after updating status
                             displayFriendRequests(auth.currentUser);
                         }
                     })
