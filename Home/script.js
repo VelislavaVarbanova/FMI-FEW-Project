@@ -75,10 +75,10 @@ function displayChatRequests(user) {
                                 rejectButton.textContent = 'Reject';
 
                                 acceptButton.addEventListener('click', () => {
-                                    handleChatRequestAction(chatRequestId, 'accepted', currentUserId);
+                                    handleChatRequestAction(chatRequestId, 'accepted', user);
                                 });
                                 rejectButton.addEventListener('click', () => {
-                                    handleChatRequestAction(chatRequestId, 'rejected', currentUserId);
+                                    handleChatRequestAction(chatRequestId, 'rejected', user);
                                 });
 
                                 listItem.appendChild(acceptButton);
@@ -109,8 +109,8 @@ function displayChatRequests(user) {
     });
 }
 
-function handleChatRequestAction(chatRequestId, action, currentUserId) {
-    const chatRequestRef = refDatabase('chatRequests/' + currentUserId + '/' + chatRequestId);
+function handleChatRequestAction(chatRequestId, action, user) {
+    const chatRequestRef = refDatabase('chatRequests/' + user.uid + '/' + chatRequestId);
     
     get(chatRequestRef)
         .then(chatRequestSnapshot => {
@@ -130,7 +130,6 @@ function handleChatRequestAction(chatRequestId, action, currentUserId) {
                     set(refDatabase('chats/' + chatId), chatData)
                         .then(() => {
                             console.log("Chat entry created successfully!");
-                            // displayChats(user);
                         })
                         .catch(error => {
                             console.error("Error creating chat entry: ", error);
@@ -144,6 +143,7 @@ function handleChatRequestAction(chatRequestId, action, currentUserId) {
                 .then(() => {
                     console.log("Chat request status updated successfully!");
                     displayChatRequests(user);
+                    displayChats(user);
                 })
                 .catch(error => {
                     console.error("Error updating chat request status: ", error);
@@ -185,6 +185,7 @@ function displayChats(user) {
                                     const otherUserData = otherUserSnapshot.val();
                                     if (otherUserData) {
                                         const listItem = document.createElement('li');
+                                        listItem.setAttribute('id',`${chatId}`);
                                         listItem.innerHTML = `<span class="contact-name">${otherUserData.full_name}</span>`;
 
                                         // Get the last message in the chat
@@ -202,6 +203,17 @@ function displayChats(user) {
                                                 }
 
                                                 chatsList.appendChild(listItem);
+
+                                                const chatList = document.getElementById('chats');
+                                                const chatItems = chatList.childNodes;
+                                                chatItems.forEach(function(item) {
+                                                    item.addEventListener('click', () => {
+                                                        const chatId = item.getAttribute('id');
+                                        
+                                                        // Redirect the user to the chat page with the chat ID appended to the URL
+                                                        window.location.href = `../Chat/Index.html?chatId=${chatId}`;
+                                                    });
+                                                });
                                             })
                                             .catch(error => {
                                                 console.error("Error fetching messages: ", error);
@@ -257,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function () {
         displayChatRequests(user);
         displayChats(user);
         document.querySelector('.ri-chat-new-line').addEventListener('click', () => sendChatRequest(user));
-    });
+    });   
 });
 
 const logoutButton = document.getElementById('logout-button');
@@ -270,7 +282,3 @@ logoutButton.addEventListener('click', function () {
         console.error('Sign out error:', error);
     });
 });
-
-document.querySelector('.chat').addEventListener('click', function() {
-    window.location.href = '../Chat';
-})

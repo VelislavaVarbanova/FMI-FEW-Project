@@ -8,6 +8,9 @@ body {
 
 header {
     background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    color: var(--main-col);
 }
 
 #back-icon {
@@ -60,7 +63,7 @@ li span {
     
 }
 
-.receive {
+.received {
     background-color: var(--purple-bg);
     margin-right: 60%;
 }

@@ -208,6 +208,7 @@ function updateFriendRequestStatus(friendRequestId, status, chatRequestId) {
                                     console.log("Receiver added to sender's friends list successfully!");
                                     // Refresh friend requests after updating status
                                     displayFriendRequests(auth.currentUser);
+                                    displayFriends(user);
                                 })
                                 .catch(error => {
                                     console.error("Error adding receiver to sender's friends list: ", error);
@@ -233,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
     onAuthChanged((user) => {
 
         displayFriends(user);
-        document.querySelector('.add-friends').addEventListener('click', () => addFriends(user));
+        document.querySelector('.ri-user-add-line').addEventListener('click', () => addFriends(user));
         document.querySelector('.friends-requests').addEventListener('click', () => displayFriendRequests(user));
     })
 });

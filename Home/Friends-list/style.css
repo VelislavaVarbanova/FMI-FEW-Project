@@ -26,6 +26,9 @@ body {
     border-color: var(--main-col);
     border-radius: 8px;
     border-style: inset;
+}
+
+.friends-requests {
     cursor: pointer;
 }
 
@@ -35,6 +38,7 @@ body {
     color: var(--bg);
     padding: 10px;
     border-radius: 25px;
+    cursor: pointer;
 }
 
 #add-friends {

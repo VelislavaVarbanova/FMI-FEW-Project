@@ -9,6 +9,7 @@
 
 .chats-list {
     width:100%;
+    overflow: hidden;
 }
 
 .middle-content {
@@ -46,6 +47,11 @@
 }
 
 .ri-chat-new-line {
+    background-color: var(--main-col);
+    /* border-style: inset; */
+    color: var(--bg);
+    padding: 10px;
+    border-radius: 25px;
     cursor: pointer;
 }
 
@@ -107,6 +113,7 @@ p{
     border-color: var(--bg);
     border-style: inset;
     background-color: var(--main-col);
+    height: 50%;
 }
 
 #chats {
@@ -114,6 +121,10 @@ p{
     background-color: var(--bg); 
     border-radius: 8px;
     list-style-type: none;
+    height: 70%;
+    overflow-y: scroll;
+    scrollbar-color: var(--bg);
+    scrollbar-width: thin;
 }
 
 #chats li {
@@ -122,6 +133,7 @@ p{
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 #chats li:hover {
