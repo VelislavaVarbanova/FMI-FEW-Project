@@ -21,7 +21,6 @@ function login(event, email, password) {
             last_login : Date.now()
         };
         update(refDatabase('users/' + user.uid), user_data);
-        alert('User Logged in!'); 
         window.location.href = "./Home/index.html";
     })
     .catch(function(error) {

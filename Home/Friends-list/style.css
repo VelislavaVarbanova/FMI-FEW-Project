@@ -40,7 +40,7 @@ body {
 #add-friends {
     padding: 8px;
     margin: 10px;
-    border-radius: 16px;
+    border-radius: 8px;
     border-color: var(--main-col);
 }
 

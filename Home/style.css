@@ -11,24 +11,141 @@
     width:100%;
 }
 
-.new-chat-box {
-    margin: 20px;
-    padding: 10px;
+.middle-content {
     display: flex;
     flex-direction: row;
+}
+
+.new-chat-box {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
     align-items: center;
-    justify-content: space-between;
-    width: 300px;
+    width: 20%;
+    height: 120px;
     background-color: var(--bg);
     color: var(--main-col);
     border-color: var(--main-col);
     border-style: inset;
     border-radius: 16px;
+}
+
+.new-chat-box > div {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#add-chat {
+    width: 90%;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.ri-chat-new-line {
     cursor: pointer;
 }
 
+.chat-requests-box {
+    margin: 20px;
+    padding: 10px;
+    width: 70%;
+    height: 140px;
+    overflow-y: scroll;
+    scrollbar-color: var(--bg);
+    scrollbar-width: thin;
+    background-color: var(--bg);
+    color: var(--main-col);
+    border-radius: 16px;
+    border-color: var(--main-col);
+    border-style: inset;
+}
 
+.chat-requests-title {
+    margin: 0;
+    font-weight: 600;
+}
+
+#chat-requests {
+    margin: 0;
+}
+
+#chat-requests li {
+    display: flex;
+    align-items: center;
+    margin: 6px;
+    width: fit-content;
+}
+
+#chat-requests li button {
+    background-color: var(--main-col);
+    color: var(--bg);
+    padding: 6px;
+    margin: 8px;
+    border-radius: 8px;
+    border-color: var(--main-col);
+    cursor: pointer;
+}
+
+.chats-title {
+    margin: 14px;
+    color: var(--bg);
+    font-weight: 500;
+}
+
+p{
+    color: var(--main-col);
+}
+
+#chat-section {
+    padding: 30px;
+    margin: 20px;
+    border-radius: 16px;
+    border-color: var(--bg);
+    border-style: inset;
+    background-color: var(--main-col);
+}
+
+#chats {
+    padding: 16px;
+    background-color: var(--bg); 
+    border-radius: 8px;
+    list-style-type: none;
+}
+
+#chats li {
+    margin: 14px;
+    padding: 14px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+#chats li:hover {
+    background-color: #afc38f;
+}
+
+.contact-name {
+    color: var(--dark-purple);
+    font-weight: 600;
+}
+
+.contact-message {
+    color: grey;
+    font-size: 16px;
+    padding: 0 ;
+}
 
 @media screen and (max-width: 800px) {
-    
+    .new-chat-title {
+       margin: 8px; 
+    }
+
+    .new-chat-box > div {
+        align-items:first baseline;
+        height: fit-content;
+    }
 }

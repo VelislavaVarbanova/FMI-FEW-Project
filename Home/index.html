@@ -45,11 +45,23 @@
                         <i class="ri-search-2-line"></i>
                     </div>
                 </section>
-                <div class="new-chat-box">
-                    <p class="new-chat-title">New chat</p>
-                    <i class="ri-chat-new-line"></i>
-                </div>
-                <button class="chat">Go to chat</button>
+                <section class="middle-content">
+                    <div class="new-chat-box">
+                        <div>
+                            <p class="new-chat-title">New chat</p>
+                            <i class="ri-chat-new-line"></i>
+                        </div>
+                        <input type="search" id="add-chat" placeholder="Type full name">
+                    </div>
+                    <div class="chat-requests-box">
+                        <p class="chat-requests-title">Chat requests :</p>
+                        <ul id="chat-requests"></ul>
+                    </div>
+                </section>
+                <section id="chat-section">
+                    <h4 class="chats-title">Your chats list:</h4>
+                    <ul id="chats"></ul>
+                </section>
             </div>
         </section>
         <script src="../firebase.js" type="module"></script>

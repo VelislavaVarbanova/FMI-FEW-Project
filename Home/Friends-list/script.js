@@ -172,8 +172,8 @@ function updateFriendRequestStatus(friendRequestId, status) {
   // Fetch the friend request data
   get(friendRequestRef)
       .then(friendRequestSnapshot => {
-          console.log("Friend Request Snapshot:", friendRequestSnapshot.val());
           const friendRequestData = friendRequestSnapshot.val();
+          console.log("Friend Request Snapshot:", friendRequestSnapshot.val());
           if (friendRequestData) {
               const receiverId = friendRequestData.receiver;
               const senderId = friendRequestData.sender;
