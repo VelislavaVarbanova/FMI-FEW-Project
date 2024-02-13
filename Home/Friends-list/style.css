@@ -51,7 +51,7 @@ body {
     border-radius: 8px;
 }
 
-.friends-list-title, .friend-requesrs-title {
+.friends-list-title {
     color: var(--purple-bg);
     margin: 20px;
     padding: 20px;
@@ -61,8 +61,16 @@ body {
     justify-content: left;
 }
 
+/* .friend-requests-title, .friend-requests-title > p {
+    color: var(--purple-bg);
+} */
+
 .friend-requests-section {
     padding-left: 0;
+    color: var(--purple-bg);
+    margin-left: 40px;
+    font-size: 26px;
+    font-weight: 500;
 }
 
 .friend-requests-section li {
